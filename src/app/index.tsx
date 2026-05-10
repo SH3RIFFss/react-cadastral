@@ -1,15 +1,11 @@
-import { Link } from 'expo-router';
-import { Alert, Image, ScrollView, Text, View } from 'react-native';
+import { Link, router } from 'expo-router';
+import { Image, ScrollView, Text, View } from 'react-native';
 
 import { Btn } from '@/components/Button';
 import { Input } from '@/components/Input';
 import { styles } from '@/styles/styles';
 
 export default function App() {
-
-    function logar(){
-        Alert.alert("Logando...","Entrando com a sua conta. Aguarde...")
-    }
 
     return (
         <View style={styles.container}>
@@ -20,7 +16,7 @@ export default function App() {
                 <View style={styles.form}>
                     <Input placeholder="E-MAIL..." keyboardType='email-address' />
                     <Input placeholder="SENHA..." keyboardType='numeric' secureTextEntry />
-                    <Btn label="Logar" onPress={logar}/>
+                    <Btn label="Logar" onPress={()=>{router.navigate('/home')}}/>
                 </View >
             </ScrollView>
             <View style={styles.center}>

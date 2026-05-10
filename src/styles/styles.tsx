@@ -34,7 +34,14 @@ const styles = StyleSheet.create({
     link: {
         color: '#ff0000',
         fontWeight: 600,
+    },
+    row: {
+        flexDirection: 'row',
+        backgroundColor: '#c2c2c2',
+        marginBottom:10,
+        padding:5,
     }
 })
 
 export { styles };
+
