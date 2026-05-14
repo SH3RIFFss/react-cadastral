@@ -4,7 +4,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#ffffff',
-        padding: 30,
+        padding:50
+    },
+    containerPages:{
+        flex: 1,
+        flexDirection: 'column',
+        paddingTop: 100,
+        padding: 50
     },
     center: {
         flex: 1,
@@ -36,11 +42,20 @@ const styles = StyleSheet.create({
         fontWeight: 600,
     },
     row: {
+        flex:1,
+        justifyContent:'space-around',
         flexDirection: 'row',
+        width:'100%',
+        height:40,
         backgroundColor: '#c2c2c2',
+        borderWidth:1,
+        borderRadius:10,
         marginBottom:10,
         padding:5,
-    }
+    },
+    dark: {
+        backgroundColor: '#2f2f54',
+    },
 })
 
 export { styles };

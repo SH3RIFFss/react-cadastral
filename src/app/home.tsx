@@ -1,8 +1,8 @@
-import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native"
-
 import { Btn } from "@/components/Button"
 import { Input } from "@/components/Input"
 import { styles } from "@/styles/styles"
+import { router } from "expo-router"
+import { FlatList, StyleSheet, Text, View } from "react-native"
 import { dados } from "./array"
 
 export default function Home() {
@@ -11,35 +11,46 @@ export default function Home() {
 
     const Item = ({ id, nome, quantidade }: Itemprops) => (
         <View style={styles.row}>
-            <Text style={{ flex: 0.5 }} >{id}</Text>
-            <Text style={{ flex: 2 }} >{nome}</Text>
-            <Text style={{ flex: 1 }} >{quantidade}</Text>
+            <Text >{id}</Text>
+            <Text >{nome}</Text>
+            <Text >{quantidade}</Text>
         </View>
     )
 
     return (
-        <View style={styleHome.container} >
-            <ScrollView>
-                <View style={styles.form}>
-                    <Input placeholder='Pesquisar...' />
-                    <Btn label="procurar" />
+        <View style={[styles.containerPages, styles.dark]} >
+            <View>
+                <Btn label="Interagir com produtos" onPress={() => router.navigate('/register')} />
+            </View>
+            <View style={styles.form}>
+                <Input placeholder='Pesquisar...' />
+                <Btn label="procurar" />
+                <View style={styleHome.row}>
+                    <Text >Id</Text>
+                    <Text >Nome</Text>
+                    <Text >Quantidade</Text>
                 </View>
-            </ScrollView>
-            <FlatList data={dados} renderItem={({ item }) => <Item id={item.id} nome={item.nome} quantidade={item.quantidade} />} keyExtractor={(item) => item.id.toString()} />
+                <FlatList data={dados} renderItem={({ item }) => <Item id={item.id} nome={item.nome} quantidade={item.quantidade} />} keyExtractor={(item) => item.id.toString()} />
+            </View>
         </View>
     )
 }
 
 const styleHome = StyleSheet.create({
-    container: {
-        backgroundColor: '#2f2f54',
-        flex: 1,
-        paddingTop: 100,
-        padding: 50
-    },
     center: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    row: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        width: '100%',
+        height: 40,
+        backgroundColor: '#c2c2c2',
+        borderWidth: 1,
+        borderRadius: 10,
+        marginBottom: 10,
+        padding: 5,
     }
 })
