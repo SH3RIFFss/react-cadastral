@@ -1,5 +1,6 @@
 
 import { router } from "expo-router"
+import { useState } from "react"
 import { ScrollView, Text, View } from "react-native"
 
 import { Btn } from "@/components/Button"
@@ -7,6 +8,12 @@ import { Input } from "@/components/Input"
 import { styles } from "@/styles/styles"
 
 export default function Register() {
+
+    const [id, setId] =useState("");
+        const [nome, setNome] =useState("");
+        const [quantidade, SetQuantidade] =useState("");
+        const [pruducts, SetProducts] =useState([]);
+
     return (
         <View style={[styles.containerPages, styles.dark]}>
             <ScrollView>

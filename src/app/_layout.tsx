@@ -1,2 +1,12 @@
+import { Slot } from "expo-router"
+import { SQLiteProvider } from "expo-sqlite"
 
-// Espaço dedicado para a configuração da arquitetura de navegação das paginas internas...
+import { initializeDateBase } from "@/database/initializeDataBase"
+
+export default function Layout (){
+    return(
+        <SQLiteProvider databaseName="sqlite.db" onInit={initializeDateBase}>
+            <Slot/>
+        </SQLiteProvider>
+    )
+}
